@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cipher Node Touch - STM32F405 触控无线开发板</title>
+    <meta
+      name="description"
+      content="Cipher Node Touch 是一款基于 STM32F405RGT6 的触控无线开发板，支持 LoRa Chat、Wi-Fi 连接与 LVGL 图形界面。"
+    />
+    <meta
+      name="keywords"
+      content="Cipher Node Touch, 嵌入式开发板, STM32F405RGT6, 168MHz, LoRa Chat, Wi-Fi, LVGL, 触摸屏"
+    />
+    <meta name="author" content="Cipher Node Touch Team" />
+    <meta property="og:title" content="Cipher Node Touch" />
+    <meta
+      property="og:description"
+      content="基于 STM32F405RGT6 的触控无线开发板，专注产品化 UI 演示与快速开发。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="images/board1.jpg" />
+    <meta property="og:locale" content="zh_CN" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="is-loading">
+    <div class="loader" aria-hidden="true">
+      <div class="loader__ring"></div>
+      <p>Cipher Node Touch</p>
+    </div>
+
+    <header class="site-header glass">
+      <a class="logo" href="#hero" aria-label="Cipher Node Touch 首页">
+        <img src="images/cipher_node_touch_logo.png" alt="Cipher Node Touch Logo" />
+        <span>Cipher Node Touch</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#features">产品特性</a>
+        <a href="#form-demo">产品形态 Demo</a>
+        <a href="#gallery">开发板展示</a>
+        <a href="#specs">参数</a>
+        <a href="#ecosystem">生态与资料</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="hero" class="hero section-grid">
+        <div class="hero__content reveal">
+          <img
+            class="hero-logo"
+            src="images/cipher_node_touch_logo.png"
+            alt="Cipher Node Touch"
+          />
+          <h2>基于 STM32F405RGT6 的触控无线开发板</h2>
+          <p class="hero__desc">
+            一块面向真实产品形态演示与快速原型打造的开发板。集成触摸交互、LoRa 通讯、Wi-Fi 联网与 LVGL 图形界面，帮助开发者把想法更快落地为可交互设备。
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#specs">查看参数</a>
+            <a class="btn btn--ghost" href="#ecosystem">获取资料</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="section-title reveal">
+          <p class="kicker">Product Overview</p>
+          <h3>Cipher Node Touch 特点</h3>
+        </div>
+        <div class="feature-grid">
+          <article class="card reveal">
+            <h4>高性能 MCU</h4>
+            <p>基于 STM32F405RGT6，主频 168MHz，兼顾实时控制、通信处理与图形交互。</p>
+          </article>
+          <article class="card reveal">
+            <h4>WiFi 联网</h4>
+            <p>支持WiFi，助力万物互联与智能应用。</p>
+          </article>
+          <article class="card reveal">
+            <h4>LoRa 通讯能力</h4>
+            <p>支持 LoRa 文本消息与链路交互，适用于远距离低功耗通信演示与应用验证。</p>
+          </article>
+          <article class="card reveal">
+            <h4>触摸屏支持</h4>
+            <p>面向交互设备开发，适配多种触控屏方案，快速搭建人机界面。</p>
+          </article>
+          <article class="card reveal">
+            <h4>LVGL 图形界面</h4>
+            <p>成熟 GUI 方案，便于构建流畅、可定制、易维护的视觉界面。</p>
+          </article>
+          <article class="card reveal">
+            <h4>AI 辅助</h4>
+            <p>项目目录内置 SKILL.md，适合 AI agent 协助开发，助力学习AI在嵌入式开发中的应用。</p>
+          </article>
+          <article class="card reveal">
+            <h4>传感器</h4>
+            <p>板载高性能温湿度传感器。</p>
+          </article>
+          <article class="card reveal">
+            <h4>电池扩展支持</h4>
+            <p>预留锂电池充电电路与接口，用户可自行增加锂电池，可嵌入壳体内部。电池尺寸不大于 70mm × 40mm，厚度不大于 5mm。</p>
+          </article>
+          <article class="card reveal">
+            <h4>USB 通信</h4>
+            <p>支持 USB 通信，支持U盘模拟与虚拟串口，支持U盘固件升级。</p>
+          </article>
+          <article class="card reveal">
+            <h4>开源生态</h4>
+            <p>文档、示例、驱动与工具链持续开放，便于二次开发与社区协作。</p>
+          </article>
+          <article class="card reveal">
+            <h4>双编译环境支持</h4>
+            <p>Demo 同时支持 CMake 与 Keil 两种编译环境，适配不同团队的开发习惯与工程流程。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="form-demo" class="section">
+        <div class="section-title reveal">
+          <p class="kicker">Product Form Demo</p>
+          <h3>产品形态 Demo 展示</h3>
+        </div>
+        <p class="demo-intro reveal">
+          区别于仅做基础外设点亮的开发板演示，Cipher Node Touch 聚焦可手持设备形态，展示完整交互流程与无线功能联动。以下位置预留配图，后续可直接替换为实拍或截图。
+        </p>
+        <div class="demo-grid">
+          <article class="demo-card reveal">
+            <div class="demo-media" aria-label="手机式手持设备 UI 预留配图">
+              <span>预留配图：手机式手持设备 UI</span>
+            </div>
+            <h4>手机式手持设备 UI</h4>
+            <p>采用接近手机交互逻辑的 UI 布局，具备页面切换、状态栏与触控反馈，突出产品化体验。</p>
+          </article>
+          <article class="demo-card reveal">
+            <div class="demo-media" aria-label="LoRa Chat 演示预留配图">
+              <span>预留配图：LoRa Chat</span>
+            </div>
+            <h4>LoRa Chat</h4>
+            <p>在设备端提供聊天式消息收发界面，支持加密通信，直观展示 LoRa 通道下的安全文本传输与消息列表交互。</p>
+          </article>
+          <article class="demo-card reveal">
+            <div class="demo-media" aria-label="Wi-Fi 搜索连接演示预留配图">
+              <span>预留配图：Wi-Fi 搜索连接</span>
+            </div>
+            <h4>Wi-Fi 搜索连接</h4>
+            <p>支持热点扫描、列表展示与连接流程，完整呈现从发现网络到连接成功的用户路径。</p>
+          </article>
+          <article class="demo-card reveal">
+            <div class="demo-media" aria-label="LoRa Setting 演示预留配图">
+              <span>预留配图：LoRa Setting</span>
+            </div>
+            <h4>LoRa Setting</h4>
+            <p>通过可视化页面更改 LoRa 关键参数与加密密钥，降低配置门槛并提升现场调试效率。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="gallery" class="section">
+        <div class="section-title reveal">
+          <p class="kicker">Board Gallery</p>
+          <h3>开发板图片展示</h3>
+        </div>
+        <div class="gallery-grid">
+          <figure class="gallery-item reveal">
+            <img
+              src="images/board1.jpg"
+              data-full="images/board1.jpg"
+              loading="lazy"
+              alt="Cipher Node Touch 开发板正面图"
+            />
+          </figure>
+          <figure class="gallery-item reveal">
+            <img
+              src="images/board2.jpg"
+              data-full="images/board2.jpg"
+              loading="lazy"
+              alt="Cipher Node Touch 开发板侧面接口图"
+            />
+          </figure>
+          <figure class="gallery-item reveal">
+            <img
+              src="images/board3.jpg"
+              data-full="images/board3.jpg"
+              loading="lazy"
+              alt="Cipher Node Touch 开发板运行界面图"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section id="specs" class="section">
+        <div class="section-title reveal">
+          <p class="kicker">Specifications</p>
+          <h3>核心参数</h3>
+        </div>
+        <div class="table-wrap reveal">
+          <table class="spec-table" aria-label="Cipher Node Touch 参数表">
+            <thead>
+              <tr>
+                <th>参数</th>
+                <th>内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>MCU</td>
+                <td>STM32F405RGT6</td>
+              </tr>
+              <tr>
+                <td>主频</td>
+                <td>168MHz</td>
+              </tr>
+              <tr>
+                <td>屏幕</td>
+                <td>IPS 触摸屏，分辨率 480x320，电容式触摸</td>
+              </tr>
+              <tr>
+                <td>WiFi</td>
+                <td>支持</td>
+              </tr>
+              <tr>
+                <td>LoRa</td>
+                <td>支持</td>
+              </tr>
+              <tr>
+                <td>USB</td>
+                <td>USB 2.0 Device</td>
+              </tr>
+              <tr>
+                <td>GUI</td>
+                <td>LVGL</td>
+              </tr>
+              <tr>
+                <td>电源</td>
+                <td>Type-C</td>
+              </tr>
+              <tr>
+                <td>开发环境</td>
+                <td>CMake / Keil</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="ecosystem" class="section">
+        <div class="section-title reveal">
+          <p class="kicker">Open Source Ecosystem</p>
+          <h3>软件生态与资料入口</h3>
+        </div>
+        <div class="eco-grid">
+          <a class="eco-card reveal" href="https://github.com/your_repo" target="_blank" rel="noreferrer">
+            <h4>GitHub</h4>
+            <p>源码、Issue 与版本发布</p>
+          </a>
+          <a class="eco-card reveal" href="https://gitee.com/your_repo" target="_blank" rel="noreferrer">
+            <h4>Gitee</h4>
+            <p>国内镜像与协作开发</p>
+          </a>
+          <a class="eco-card reveal" href="https://pan.baidu.com/xxxx" target="_blank" rel="noreferrer">
+            <h4>百度网盘</h4>
+            <p>固件包与资料下载</p>
+          </a>
+          <a class="eco-card reveal" href="https://github.com/your_repo" target="_blank" rel="noreferrer">
+            <h4>文档中心</h4>
+            <p>快速上手、接口说明与 FAQ</p>
+          </a>
+          <a class="eco-card reveal" href="https://github.com/your_repo" target="_blank" rel="noreferrer">
+            <h4>示例代码</h4>
+            <p>典型项目模板与演示工程</p>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Cipher Node Touch</p>
+      <p>Copyright © <span id="year"></span> Cipher Node Touch. All rights reserved.</p>
+      <p>开源说明：硬件与软件资料将持续开放，欢迎社区共建。</p>
+      <p>联系方式：contact@cipher-node-touch.dev（占位）</p>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="返回顶部">↑</button>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button class="lightbox__close" id="lightboxClose" aria-label="关闭预览">×</button>
+      <img id="lightboxImg" alt="开发板大图预览" />
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

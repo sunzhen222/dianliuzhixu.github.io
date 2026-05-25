@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title">
+  <title>Cipher Node Touch Logo</title>
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#37d6ff" />
+      <stop offset="100%" stop-color="#f0bf53" />
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="104" height="104" rx="22" fill="#0b1220" stroke="url(#g1)" stroke-width="5" />
+  <path d="M34 42h40a12 12 0 0 1 0 24H48a8 8 0 1 0 0 16h36" fill="none" stroke="url(#g1)" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="88" cy="82" r="8" fill="#37d6ff"/>
+</svg>
