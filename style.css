@@ -278,7 +278,8 @@ h3 {
 }
 
 .gallery-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
+  justify-content: center;
 }
 
 .demo-intro {
@@ -309,16 +310,23 @@ h3 {
   width: min(320px, 100%);
   aspect-ratio: 320 / 480;
   border-radius: 12px;
-  border: 1px dashed rgba(255, 255, 255, 0.24);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   display: grid;
   place-items: center;
   text-align: center;
-  padding: 12px;
+  overflow: hidden;
   margin: 0 auto;
   color: #d9e6ff;
   background:
     linear-gradient(130deg, rgba(101, 182, 255, 0.14), rgba(55, 214, 255, 0.06)),
     repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.04) 0 10px, rgba(255, 255, 255, 0.01) 10px 20px);
+}
+
+.demo-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 .demo-media span {
@@ -342,8 +350,7 @@ h3 {
 .gallery-item img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
+  height: auto;
   transition: transform 0.32s ease, filter 0.32s ease;
   cursor: zoom-in;
 }
