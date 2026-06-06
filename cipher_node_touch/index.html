@@ -7,20 +7,20 @@
     <title>Cipher Node Touch - STM32F405 触控无线开发板</title>
     <meta
       name="description"
-      content="Cipher Node Touch 是一款基于 STM32F405RGT6 的触控无线开发板，支持 LoRa Chat、Wi-Fi 连接与 LVGL 图形界面。"
+      content="Cipher Node Touch 是一款基于 STM32F405RGT6 的开发板，支持 LoRa、Wi-Fi 与 LVGL 图形界面。"
     />
     <meta
       name="keywords"
-      content="Cipher Node Touch, 嵌入式开发板, STM32F405RGT6, 168MHz, LoRa Chat, Wi-Fi, LVGL, 触摸屏"
+      content="Cipher Node Touch, 嵌入式开发板, STM32F405RGT6, 168MHz, LoRa, Wi-Fi, LVGL, 触摸屏"
     />
     <meta name="author" content="Cipher Node Touch Team" />
     <meta property="og:title" content="Cipher Node Touch" />
     <meta
       property="og:description"
-      content="基于 STM32F405RGT6 的触控无线开发板，专注产品化 UI 演示与快速开发。"
+      content="基于 STM32F405RGT6 的开发板，专注产品化 UI 演示与快速开发。"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/images/board1.jpg" />
+    <meta property="og:image" content="/images/board_1.jpg" />
     <meta property="og:locale" content="zh_CN" />
     <link rel="stylesheet" href="../style.css" />
   </head>
@@ -53,7 +53,7 @@
             src="../images/cipher_node_touch_logo.png"
             alt="Cipher Node Touch"
           />
-          <h2>基于 STM32F405RGT6 的触控无线开发板</h2>
+          <h2>基于 STM32F405RGT6 的开发板</h2>
           <p class="hero__desc">
             一块面向真实产品形态演示与快速原型打造的开发板。集成触摸交互、LoRa 通讯、Wi-Fi 联网与 LVGL 图形界面，帮助开发者把想法更快落地为可交互设备。
           </p>
@@ -61,6 +61,9 @@
             <a class="btn btn--primary" href="#specs">查看参数</a>
             <a class="btn btn--ghost" href="#ecosystem">获取资料</a>
           </div>
+        </div>
+        <div class="hero__visual reveal" aria-label="Cipher Node Touch 开发板外观">
+          <img src="../images/board_2.jpg" alt="Cipher Node Touch 开发板" />
         </div>
       </section>
 
@@ -71,28 +74,32 @@
         </div>
         <div class="feature-grid">
           <article class="card reveal">
-            <h4>高性能 MCU</h4>
-            <p>基于 STM32F405RGT6，主频 168MHz，兼顾实时控制、通信处理与图形交互。</p>
+            <h4>通用型 MCU</h4>
+            <p>基于 STM32F405RGT6，主频 168MHz，主流方案，适合学习，也适合产品开发参考。</p>
           </article>
           <article class="card reveal">
-            <h4>WiFi 联网</h4>
-            <p>支持WiFi，助力万物互联与智能应用。</p>
-          </article>
-          <article class="card reveal">
-            <h4>LoRa 通讯能力</h4>
-            <p>支持 LoRa 文本消息与链路交互，适用于远距离低功耗通信演示与应用验证。</p>
-          </article>
-          <article class="card reveal">
-            <h4>触摸屏支持</h4>
-            <p>面向交互设备开发，适配多种触控屏方案，快速搭建人机界面。</p>
-          </article>
-          <article class="card reveal">
-            <h4>LVGL 图形界面</h4>
-            <p>成熟 GUI 方案，便于构建流畅、可定制、易维护的视觉界面。</p>
+            <h4>命令行化编译、烧录</h4>
+            <p>编译与烧录流程完全命令行化，更适用于AI时代与自动化构建。</p>
           </article>
           <article class="card reveal">
             <h4>AI 辅助</h4>
             <p>项目目录内置 SKILL.md，适合 AI agent 协助开发，助力学习AI在嵌入式开发中的应用。</p>
+          </article>
+          <article class="card reveal">
+            <h4>Wi-Fi 联网</h4>
+            <p>支持 Wi-Fi，助力万物互联与智能应用。</p>
+          </article>
+          <article class="card reveal">
+            <h4>LoRa 通信</h4>
+            <p>支持 LoRa 文本消息与链路交互，适用于远距离低功耗通信演示与应用验证。</p>
+          </article>
+          <article class="card reveal">
+            <h4>触摸屏支持</h4>
+            <p>电容式触摸屏，支持多点触控。</p>
+          </article>
+          <article class="card reveal">
+            <h4>LVGL 图形界面</h4>
+            <p>成熟 GUI 方案，便于构建流畅、可定制、易维护的视觉界面。</p>
           </article>
           <article class="card reveal">
             <h4>传感器</h4>
@@ -100,7 +107,7 @@
           </article>
           <article class="card reveal">
             <h4>电池扩展支持</h4>
-            <p>预留锂电池充电电路与接口，用户可自行增加锂电池，可嵌入壳体内部。电池尺寸不大于 70mm × 40mm，厚度不大于 5mm。</p>
+            <p>预留锂电池充电电路与接口，用户可自行增加锂电池，壳体内部已预留空间。电池尺寸不大于 70mm × 40mm，厚度不大于 5mm。</p>
           </article>
           <article class="card reveal">
             <h4>USB 通信</h4>
@@ -112,7 +119,7 @@
           </article>
           <article class="card reveal">
             <h4>双编译环境支持</h4>
-            <p>Demo 同时支持 CMake 与 Keil 两种编译环境，适配不同团队的开发习惯与工程流程。</p>
+            <p>Demo 同时支持 CMake 与 Keil 两种编译环境，尽可能适应不同习惯的开发者。</p>
           </article>
         </div>
       </section>
@@ -120,39 +127,29 @@
       <section id="form-demo" class="section">
         <div class="section-title reveal">
           <p class="kicker">Product Form Demo</p>
-          <h3>产品形态 Demo 展示</h3>
+          <h3>区别于仅做基础外设点亮的开发板演示，Cipher Node Touch 具有很高的产品完成度，学习者可以在Demo中学习真实产品的代码实现。</h3>
         </div>
-        <p class="demo-intro reveal">
-          区别于仅做基础外设点亮的开发板演示，Cipher Node Touch 聚焦可手持设备形态，展示完整交互流程与无线功能联动。以下位置预留配图，后续可直接替换为实拍或截图。
-        </p>
         <div class="demo-grid">
           <article class="demo-card reveal">
-            <div class="demo-media" aria-label="手机式手持设备 UI 预留配图">
-              <span>预留配图：手机式手持设备 UI</span>
+            <div class="demo-media">
+              <img src="../images/snapshot_home.bmp" loading="lazy" alt="手机式手持设备 UI 截图" />
             </div>
             <h4>手机式手持设备 UI</h4>
-            <p>采用接近手机交互逻辑的 UI 布局，具备页面切换、状态栏与触控反馈，突出产品化体验。</p>
+            <p>采用接近手机交互逻辑的 UI 布局，让你学习到真实产品的 UI 实现方式。</p>
           </article>
           <article class="demo-card reveal">
-            <div class="demo-media" aria-label="LoRa Chat 演示预留配图">
-              <span>预留配图：LoRa Chat</span>
+            <div class="demo-media">
+              <img src="../images/snapshot_lora_chat.bmp" loading="lazy" alt="LoRa Chat 演示截图" />
             </div>
             <h4>LoRa Chat</h4>
-            <p>在设备端提供聊天式消息收发界面，支持加密通信，直观展示 LoRa 通道下的安全文本传输与消息列表交互。</p>
+            <p>将 LoRa 通信 Demo 设计成有趣的聊天形式：多台开发板配置相同的 LoRa 参数和通信密钥后，即可实现多人聊天。</p>
           </article>
           <article class="demo-card reveal">
-            <div class="demo-media" aria-label="Wi-Fi 搜索连接演示预留配图">
-              <span>预留配图：Wi-Fi 搜索连接</span>
+            <div class="demo-media">
+              <img src="../images/snapshot_mqtt_chat.bmp" loading="lazy" alt="MQTT Chat 演示截图" />
             </div>
-            <h4>Wi-Fi 搜索连接</h4>
-            <p>支持热点扫描、列表展示与连接流程，完整呈现从发现网络到连接成功的用户路径。</p>
-          </article>
-          <article class="demo-card reveal">
-            <div class="demo-media" aria-label="LoRa Setting 演示预留配图">
-              <span>预留配图：LoRa Setting</span>
-            </div>
-            <h4>LoRa Setting</h4>
-            <p>通过可视化页面更改 LoRa 关键参数与加密密钥，降低配置门槛并提升现场调试效率。</p>
+            <h4>MQTT Chat</h4>
+            <p>将 Wi-Fi MQTT 通信 Demo 设计成有趣的全球聊天室，让开发者与全球“板友”实时交流，用更轻松的方式呈现原本枯燥的技术。</p>
           </article>
         </div>
       </section>
@@ -160,31 +157,15 @@
       <section id="gallery" class="section">
         <div class="section-title reveal">
           <p class="kicker">Board Gallery</p>
-          <h3>开发板图片展示</h3>
+          <h3>左板右屏的布局，方便你的学习与调试，调试时不用再“翻来覆去”。</h3>
         </div>
         <div class="gallery-grid">
           <figure class="gallery-item reveal">
             <img
-              src="../images/board1.jpg"
-              data-full="../images/board1.jpg"
+              src="../images/board_1.jpg"
+              data-full="../images/board_1.jpg"
               loading="lazy"
               alt="Cipher Node Touch 开发板正面图"
-            />
-          </figure>
-          <figure class="gallery-item reveal">
-            <img
-              src="../images/board2.jpg"
-              data-full="../images/board2.jpg"
-              loading="lazy"
-              alt="Cipher Node Touch 开发板侧面接口图"
-            />
-          </figure>
-          <figure class="gallery-item reveal">
-            <img
-              src="../images/board3.jpg"
-              data-full="../images/board3.jpg"
-              loading="lazy"
-              alt="Cipher Node Touch 开发板运行界面图"
             />
           </figure>
         </div>
@@ -234,7 +215,7 @@
               </tr>
               <tr>
                 <td>电源</td>
-                <td>Type-C</td>
+                <td>Type-C / 锂电池（锂电池需自行购买，接口与充电电路已预留）</td>
               </tr>
               <tr>
                 <td>开发环境</td>
@@ -263,14 +244,6 @@
             <h4>百度网盘</h4>
             <p>固件包与资料下载</p>
           </a>
-          <a class="eco-card reveal" href="https://github.com/your_repo" target="_blank" rel="noreferrer">
-            <h4>文档中心</h4>
-            <p>快速上手、接口说明与 FAQ</p>
-          </a>
-          <a class="eco-card reveal" href="https://github.com/your_repo" target="_blank" rel="noreferrer">
-            <h4>示例代码</h4>
-            <p>典型项目模板与演示工程</p>
-          </a>
         </div>
       </section>
     </main>
@@ -278,8 +251,8 @@
     <footer class="site-footer">
       <p>Cipher Node Touch</p>
       <p>Copyright © <span id="year"></span> Cipher Node Touch. All rights reserved.</p>
-      <p>开源说明：硬件与软件资料将持续开放，欢迎社区共建。</p>
-      <p>联系方式：contact@cipher-node-touch.dev（占位）</p>
+      <p>联系方式：larriesun2007@gmail.com </p>
+      <p>微信(工作号，请说明来意)：dianliuzhixu </p>
     </footer>
 
     <button class="back-to-top" id="backToTop" aria-label="返回顶部">↑</button>

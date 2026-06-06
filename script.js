@@ -10,10 +10,16 @@ if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
 
-window.addEventListener('load', () => {
+const showPage = () => {
   document.body.classList.remove('is-loading');
   document.body.classList.add('is-ready');
-});
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', showPage);
+} else {
+  showPage();
+}
 
 const observer = new IntersectionObserver(
   (entries) => {
