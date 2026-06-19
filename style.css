@@ -259,6 +259,25 @@ h2 {
   margin-bottom: 24px;
 }
 
+.product-intro > p {
+  max-width: 900px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.9;
+}
+
+.product-intro code {
+  color: var(--cyan);
+  font: inherit;
+  font-weight: 600;
+}
+
+.product-intro .hero__visual {
+  max-width: 900px;
+  margin-top: 28px;
+}
+
 .kicker {
   color: var(--cyan);
   margin: 0;
