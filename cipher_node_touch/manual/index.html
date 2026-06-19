@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Cipher Node Touch 开发板在线使用手册，包含环境安装、编译、烧录与调试说明。" />
+    <title>在线使用手册 - Cipher Node Touch</title>
+    <link rel="stylesheet" href="./manual.css" />
+  </head>
+  <body>
+    <header class="manual-header">
+      <a class="brand" href="../" aria-label="返回 Cipher Node Touch 首页">
+        <img src="../../images/cipher_node_touch_logo.png" alt="" />
+        <span>Cipher Node Touch</span>
+      </a>
+      <nav aria-label="页面导航">
+        <a href="../">产品首页</a>
+        <a href="#contents">手册目录</a>
+      </nav>
+    </header>
+
+    <div class="manual-layout">
+      <aside class="toc" id="contents">
+        <p class="toc__label">在线使用手册</p>
+        <a href="#preface">前言</a>
+        <a href="#hardware">1. 硬件介绍</a>
+        <a href="#demo">2. 上电与 Demo</a>
+        <a class="toc__sub" href="#lora-chat">LoRa Chat</a>
+        <a class="toc__sub" href="#mqtt-chat">MQTT Chat</a>
+        <a href="#source">3. 下载源码</a>
+        <a href="#environment">4. 安装环境</a>
+        <a href="#build">5. 编译</a>
+        <a href="#flash">6. 烧录</a>
+        <a href="#code">7. 查看源码</a>
+        <a href="#logs">查看打印</a>
+        <a href="#agent">8. AI Agent</a>
+      </aside>
+
+      <main class="manual">
+        <section class="manual-hero">
+          <p class="eyebrow">DOCUMENTATION</p>
+          <h1>Cipher Node Touch<br />开发板使用手册</h1>
+          <p>从开发板上电，到搭建工具链、编译、烧录和调试的完整入门指南。</p>
+          <div class="hero-meta"><span>8 个章节</span><span>适用于 Windows</span><span>CMake / Keil</span></div>
+        </section>
+
+        <article>
+          <section id="preface">
+            <p class="chapter">INTRODUCTION</p>
+            <h2>前言</h2>
+            <p>感谢您选择 Cipher Node Touch 开发板。</p>
+            <p>本手册采用纯古法手工编写，非 AI 生成。全文尽可能站在初学者和开发者的视角进行讲解，力求用最容易理解的方式说明问题，希望能够帮助您快速上手。</p>
+            <p>学习嵌入式最重要的是实践，而实践中最重要的一步，就是亲手完成编译与烧录。</p>
+            <p>对于初学者来说，亲自为程序增加一条打印信息、点亮一颗 LED、修改一个界面元素，所获得的经验和理解，往往远比花一整天阅读教材更加深刻。因为只有真正动手，才能建立起对硬件、软件和开发流程的直观认识。</p>
+            <p>您可以按照本手册的教程搭建开发环境，完成工程的编译与烧录，然后尝试添加一些自己感兴趣的功能，例如设计新的 UI 页面、接入自己的网络协议、连上手机蓝牙与自己的 APP 互动，或者实现一个属于自己的小项目。</p>
+            <p>当然，您也可以借助 AI Agent 作为开发助手。只要能够清晰地描述需求，AI 就能够在代码编写、问题分析和功能实现等方面提供帮助。但请记住，AI 只是工具，真正决定成长速度的，仍然是您的思考、实践和探索。</p>
+            <p>愿您在不断尝试、不断调试、不断解决问题的过程中，逐渐掌握嵌入式开发的乐趣与方法。</p>
+            <p class="closing">祝开发愉快！</p>
+          </section>
+
+          <section id="hardware">
+            <p class="chapter">CHAPTER 01</p>
+            <h2>硬件介绍</h2>
+            <div class="feature-list">
+              <p><strong>主控 MCU</strong><span>STM32F405RGT6</span></p>
+              <p><strong>显示与触摸</strong><span>480 × 320 IPS 屏幕，电容式触摸</span></p>
+              <p><strong>LoRa</strong><span>SPI 直连 LLCC68 射频芯片，不是串口透传模块，MCU 可直接操作射频芯片</span></p>
+              <p><strong>无线连接</strong><span>集成 Wi-Fi + 蓝牙模块，使用 AT 指令操作</span></p>
+              <p><strong>传感器</strong><span>I²C 接口的高性能 SHT30-DIS 温湿度传感器</span></p>
+              <p><strong>存储</strong><span>1 MB SPI Flash，在 Demo 中主要用于模拟 U 盘和固件升级</span></p>
+            </div>
+            <aside class="note"><strong>电池扩展</strong>开发板已预留电池接口、充电芯片和壳体电池槽。用户可自行购买并接线，电池尺寸不大于 70 mm × 40 mm，厚度不大于 5 mm。</aside>
+          </section>
+
+          <section id="demo">
+            <p class="chapter">CHAPTER 02</p>
+            <h2>上电与 Demo 介绍</h2>
+            <p>无电池时，可以直接插 USB 供电。注意板子上有一个拨动开关，拨到“on”时为打开。开发板出厂时已经烧录 bootloader 和 Demo 固件，启动时会显示 Cipher Node Touch Logo，之后进入主菜单。</p>
+            <p>为了保护屏幕，Demo 带有自动熄屏功能。一段时间不操作屏幕时，屏幕会熄灭；按 Function 按键或触摸屏幕可重新唤醒。自动熄屏时间可在 System 的 LCD 设置中修改。</p>
+            <p>Demo 仍在持续更新，目前支持 LoRa Chat、MQTT Chat、贪吃蛇游戏和系统菜单等功能。</p>
+
+            <h3 id="lora-chat">LoRa Chat</h3>
+            <figure>
+              <img src="./images/lora-chat.jpeg" alt="三块 Cipher Node Touch 开发板进行 LoRa Chat 通信" />
+              <figcaption>多块开发板之间进行 LoRa Chat</figcaption>
+            </figure>
+            <p>LoRa Chat 支持多个开发板之间进行近距离聊天，并显示对方的信号强度。多个开发板设置相同的 LoRa 参数后，就可以收到彼此发送的聊天内容。LoRa 参数页面可通过 LoRa Chat 页面右上角的小齿轮按键进入。</p>
+            <p>聊天内容在无线传输过程中是加密的。需要互相聊天的开发板应设置相同的 LoRa Secret Key。LoRa Secret Key 是一个字符串，传输使用的 AES 加解密密钥是该字符串的 SHA-256 哈希结果。</p>
+
+            <h3 id="mqtt-chat">MQTT Chat</h3>
+            <figure>
+              <img src="./images/mqtt-chat.jpeg" alt="三块 Cipher Node Touch 开发板通过 MQTT Chat 通信" />
+              <figcaption>通过互联网进行 MQTT Chat</figcaption>
+            </figure>
+            <p>MQTT Chat 可以通过作者已经搭建好的 MQTT Broker，经由互联网进行聊天。在连接服务器之前，需要先在 System 中连接 Wi-Fi。</p>
+            <aside class="warning"><strong>使用提醒</strong>请勿通过脚本或程序向 MQTT Broker 重复发送大量信息。若发现此类行为，将视为攻击并封闭攻击者的 username（每块开发板有独立的 username 编号）。</aside>
+          </section>
+
+          <section id="source">
+            <p class="chapter">CHAPTER 03</p>
+            <h2>下载源码</h2>
+            <p>如果想学习 Demo 里的功能是如何实现的，可以下载并查看源码。建议优先使用 Git 下载代码；如果还不会使用 Git，建议尽快学习。如果暂时不想使用 Git，也可以从 GitHub、Gitee 下载 ZIP 包，或通过百度网盘下载。</p>
+            <div class="link-grid">
+              <a href="https://github.com/sunzhen222/cipher_node_touch" target="_blank" rel="noreferrer"><strong>GitHub</strong><span>github.com/sunzhen222/cipher_node_touch</span></a>
+              <a href="https://gitee.com/dianliuzhixu/cipher_node_touch" target="_blank" rel="noreferrer"><strong>Gitee</strong><span>gitee.com/dianliuzhixu/cipher_node_touch</span></a>
+              <a href="https://pan.baidu.com/s/1xC8_7aAwKEjQGK3wG2qCUQ" target="_blank" rel="noreferrer"><strong>百度网盘</strong><span>源码、最新固件与资料 · 提取码 xseb</span></a>
+            </div>
+          </section>
+
+          <section id="environment">
+            <p class="chapter">CHAPTER 04</p>
+            <h2>安装环境</h2>
+            <p>项目提供两种开发环境：Keil 和 CMake 工具链。推荐使用 CMake 工具链，原因如下：</p>
+            <ul>
+              <li>Keil 涉及正版授权，价格对个人开发者和小团队较高；使用破解版存在法律和未来的不确定性风险。（声明：作者未使用破解版 Keil，本项目的 Keil 工程文件均由 AI 生成。）</li>
+              <li>在 AI 时代，应尽可能使用命令行工具，以便 AI 高效协助。CMake 工具链是当前较为主流和通用的方案。</li>
+            </ul>
+            <h3>CMake 工具链安装步骤</h3>
+            <ol class="steps">
+              <li><span>1</span><div>下载并安装 <a href="https://www.msys2.org/" target="_blank" rel="noreferrer">MSYS2</a>。</div></li>
+              <li><span>2</span><div>打开 <strong>MSYS2 MinGW 64-bit</strong> 终端。<img class="inline-shot compact" src="./images/msys2.png" alt="MSYS2 MinGW 64-bit 终端入口" /></div></li>
+              <li><span>3</span><div>逐条运行以下命令安装工具链，遇到提问统一输入 <code>y</code>。安装报错多数是网络问题，可更换网络环境后重试。
+                <pre><code>pacman -Syyu
+pacman -S mingw-w64-x86_64-gcc
+pacman -S mingw-w64-x86_64-arm-none-eabi-gcc
+pacman -S mingw-w64-x86_64-make
+pacman -S mingw-w64-x86_64-cmake</code></pre>
+              </div></li>
+              <li><span>4</span><div>在环境变量 <code>Path</code> 中按以下顺序增加两个路径。请根据自己的 MSYS2 安装位置调整。
+                <pre><code>C:\msys64\mingw64\bin
+C:\msys64\usr\bin</code></pre>
+                <img class="inline-shot" src="./images/path.png" alt="Windows Path 环境变量配置示例" />
+              </div></li>
+              <li><span>5</span><div>运行工程内的 <code>check_build_env.bat</code>。显示“[通过] build.bat 所需核心工具已齐全。”时，说明工具链安装完成。
+                <img class="inline-shot" src="./images/env-check.png" alt="build.bat 编译环境自查通过" />
+              </div></li>
+            </ol>
+          </section>
+
+          <section id="build">
+            <p class="chapter">CHAPTER 05</p>
+            <h2>编译</h2>
+            <p>使用 Keil 时，在 <code>MDK</code> 目录下打开工程文件，然后点击编译。使用 CMake 工程时，调用 <code>build.bat</code> 脚本即可编译。</p>
+            <p>编译完成后，<code>build</code> 目录下会生成以下文件：</p>
+            <div class="table-scroll"><table><thead><tr><th>文件名</th><th>作用</th></tr></thead><tbody>
+              <tr><td><code>cipher_node_touch.hex</code></td><td>带地址信息的固件文件。使用 J-Link、STM32CubeProgrammer 等烧录时推荐使用，无需再指定地址。</td></tr>
+              <tr><td><code>cipher_node_touch.bin</code></td><td>原始固件文件，无地址信息。</td></tr>
+              <tr><td><code>cipher_node_touch.elf</code></td><td>包含文件名、行号等调试信息的可执行调试文件，普通烧录无需使用。</td></tr>
+              <tr><td><code>cipher_node_touch.map</code></td><td>链接映射文件，用于分析 Flash/RAM 使用、排查内存溢出、查看符号地址及优化体积。</td></tr>
+              <tr><td><code>update.bin</code></td><td>压缩并带有头信息的 OTA 固件，用于 U 盘升级。</td></tr>
+            </tbody></table></div>
+          </section>
+
+          <section id="flash">
+            <p class="chapter">CHAPTER 06</p>
+            <h2>烧录</h2>
+            <div class="method"><span>01</span><div><h3>U 盘烧录</h3><p>正常运行的开发板插入电脑后，会被识别为一个 700 多 KB 的 U 盘。将编译生成的 <code>update.bin</code> 复制到该 U 盘，开发板会自动重启并安装固件。使用 <code>build.bat copy</code> 可自动完成编译与复制。</p><p>如果程序无法正常启动，例如启动后反复错误复位，导致无法进行普通 U 盘烧录，可在开发板复位或上电时一直按住 Function 按键，进入 Recover Mode 后再烧录。</p></div></div>
+            <div class="method"><span>02</span><div><h3>烧录器烧录</h3><p>开发板的 H2 排针是 SWD 接口，连接 J-Link、ST-Link 等工具即可烧录。</p></div></div>
+            <div class="method"><span>03</span><div><h3>STM32 ISP 烧录</h3><p>按住 BOOT0 按键时启动或复位开发板，开发板会进入 STM32 ISP 模式，可使用 STM32CubeProgrammer 连接 MCU 并烧录固件。</p></div></div>
+          </section>
+
+          <section id="code">
+            <p class="chapter">CHAPTER 07</p>
+            <h2>查看源码</h2>
+            <p>推荐使用 VS Code 查看源码和进行日常开发。使用 VS Code 打开 <code>cipher_node_touch</code> 文件夹，安装“C/C++”插件后查看代码体验更佳。<code>c_cpp_properties.json</code> 中定义的 <code>includePath</code> 仅用于 VS Code 的代码浏览，不参与实际编译。</p>
+            <p>在 VS Code 中按 <kbd>Ctrl</kbd> + <kbd>`</kbd> 打开终端，可使用以下命令：</p>
+            <div class="table-scroll"><table><thead><tr><th>命令</th><th>作用</th></tr></thead><tbody>
+              <tr><td><code>build.bat</code></td><td>编译</td></tr>
+              <tr><td><code>build.bat rebuild</code></td><td>删除全部过程临时文件，然后重新编译</td></tr>
+              <tr><td><code>build.bat copy</code></td><td>编译后通过 USB U 盘方式升级固件，需用 USB 将开发板连接到电脑</td></tr>
+              <tr><td><code>build.bat flash</code></td><td>编译后通过 J-Link 将固件烧录到开发板</td></tr>
+            </tbody></table></div>
+
+            <h3 id="logs">查看打印</h3>
+            <p>查看打印是很好的调试习惯。单步调试有一定局限，使用打印抓取 Log，也便于测试人员在复现问题时保留现场信息。</p>
+            <p>本项目的打印同时提供 UART1 和 USB 模拟串口两种输出：</p>
+            <ul>
+              <li>UART1：接入板子上的 H1 排针，波特率为 <code>921600</code>。</li>
+              <li>USB 模拟串口：插上 USB 后会识别出一个虚拟串口，直接打开即可，波特率不限。</li>
+            </ul>
+          </section>
+
+          <section id="agent">
+            <p class="chapter">CHAPTER 08</p>
+            <h2>AI Agent</h2>
+            <p>项目已经内置 Skill，目录为：</p>
+            <pre><code>.agents\skills\embedded\SKILL.md</code></pre>
+            <p>使用 AI Agent 打开项目文件夹后，可以询问 AI 是否能看到项目 Skill，以确认 Skill 是否已经生效。</p>
+          </section>
+        </article>
+      </main>
+    </div>
+
+    <footer><a href="../">← 返回 Cipher Node Touch 产品首页</a><p>Copyright © <span id="year"></span> Cipher Node Touch</p></footer>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  </body>
+</html>
