@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7XBK7DT02"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-Q7XBK7DT02');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ESC Master 电调调参器在线使用说明书，包含连接方式、调参配置、速度控制、固件升级与系统菜单说明。"
+    />
+    <title>ESC Master 在线使用说明书</title>
+    <link rel="stylesheet" href="./manual.css" />
+  </head>
+  <body>
+    <header class="manual-header">
+      <a class="brand" href="../" aria-label="返回电流秩序首页">
+        <span class="brand-mark">EM</span>
+        <span>ESC Master</span>
+      </a>
+      <nav aria-label="页面导航">
+        <a href="../">项目首页</a>
+        <a href="#contents">手册目录</a>
+      </nav>
+    </header>
+
+    <div class="manual-layout">
+      <aside class="toc" id="contents">
+        <p class="toc__label">在线使用说明书</p>
+        <a href="#overview">1. 产品概述</a>
+        <a href="#packing">2. 包装清单</a>
+        <a href="#connection">3. 连接方式</a>
+        <a href="#configuration">4. 调参配置</a>
+        <a href="#speed">5. 速度控制</a>
+        <a href="#esc-firmware">6. 电调固件升级</a>
+        <a href="#system">7. 系统菜单</a>
+        <a href="#self-update">8. ESC Master 固件升级</a>
+      </aside>
+
+      <main class="manual">
+        <section class="manual-hero">
+          <p class="eyebrow">DOCUMENTATION</p>
+          <h1>ESC Master<br />电调调参器使用说明书</h1>
+          <p>用于电调参数配置、固件升级及调速测试的触屏式调参设备。目前支持 AM32 固件无刷电调。</p>
+          <div class="hero-meta">
+            <span>AM32 电调</span>
+            <span>USB / BEC 供电</span>
+            <span>调参 / 测速 / 升级</span>
+          </div>
+        </section>
+
+        <article>
+          <section id="overview">
+            <p class="chapter">CHAPTER 01</p>
+            <h2>产品概述</h2>
+            <p>本产品是一款用于 <strong>电调参数配置、固件升级及调速测试</strong> 的调参设备。</p>
+            <p>目前支持 <strong>AM32 固件</strong> 的无刷电调。</p>
+          </section>
+
+          <section id="packing">
+            <p class="chapter">CHAPTER 02</p>
+            <h2>包装清单</h2>
+            <div class="feature-list single">
+              <p><strong>ESC Master 调参器</strong><span>1 台</span></p>
+            </div>
+          </section>
+
+          <section id="connection">
+            <p class="chapter">CHAPTER 03</p>
+            <h2>连接方式</h2>
+            <p>ESC Master 采用 USB 供电或 BEC 供电二选一均可。</p>
+            <aside class="warning">
+              <strong>BEC 供电注意事项</strong>
+              BEC 供电不宜超过 6.5V，否则会发热；禁止超过 12V。连接时请注意线序。
+            </aside>
+            <p>下图为典型的 BEC 供电方式。</p>
+            <figure>
+              <img src="./images/bec-power.jpeg" alt="ESC Master 通过 BEC 与电池连接供电" />
+              <figcaption>典型 BEC 供电连接示例</figcaption>
+            </figure>
+          </section>
+
+          <section id="configuration">
+            <p class="chapter">CHAPTER 04</p>
+            <h2>调参配置</h2>
+            <p>在主界面点击“配置”即可进入调参界面。保证 SIG 连上电调后，点击“读取”按键，读取电调的基础信息与各项参数。</p>
+            <p>点击屏幕左右箭头，可切换参数项目。</p>
+            <div class="action-grid">
+              <p><strong>保存</strong><span>将当前配置参数保存至电调。</span></p>
+              <p><strong>默认设置</strong><span>将默认参数保存至电调。</span></p>
+            </div>
+          </section>
+
+          <section id="speed">
+            <p class="chapter">CHAPTER 05</p>
+            <h2>速度控制</h2>
+            <p>在主界面点击“速度控制”按键，可进入速度控制功能。</p>
+            <p>在“速度控制”界面内，用户可以进行电调调速测试，可选 PWM、DSHOT150、DSHOT300、DSHOT600 几种信号输出类型。</p>
+            <aside class="note">
+              <strong>平滑模式</strong>
+              平滑模式可防止速度突变产生的反向电动势而损坏电调。
+            </aside>
+          </section>
+
+          <section id="esc-firmware">
+            <p class="chapter">CHAPTER 06</p>
+            <h2>电调固件升级</h2>
+            <p>在主界面点击“固件”按键，可进入固件升级功能。</p>
+            <p>在“固件升级”界面内，用户可以给电调进行固件升级。升级固件之前，需要先选择固件文件。</p>
+            <p>固件文件可以通过 USB 传入 ESC Master。ESC Master 插入电脑时会模拟成 U 盘。</p>
+          </section>
+
+          <section id="system">
+            <p class="chapter">CHAPTER 07</p>
+            <h2>系统菜单</h2>
+            <p>在主界面点击“系统”按键，可进入系统菜单。</p>
+            <p>在“系统菜单”内，用户可以设置控件颜色、LCD 亮度、恢复出厂设置、选择语言、查看关于信息。</p>
+            <aside class="warning">
+              <strong>恢复出厂后需要格式化</strong>
+              恢复出厂之后，ESC Master 插入电脑模拟的 U 盘需要手动格式化一次，才能正常使用固件升级功能。
+            </aside>
+            <div class="figure-grid">
+              <figure>
+                <img src="./images/screen-menu.png" alt="Windows 提示需要格式化 ESC Master 模拟 U 盘" />
+                <figcaption>恢复出厂后，Windows 可能提示需要格式化磁盘</figcaption>
+              </figure>
+              <figure>
+                <img src="./images/screen-about.png" alt="Windows 格式化 ESC Master 模拟 U 盘的设置窗口" />
+                <figcaption>按默认 FAT 文件系统快速格式化即可</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section id="self-update">
+            <p class="chapter">CHAPTER 08</p>
+            <h2>ESC Master 固件升级</h2>
+            <p>ESC Master 自身的固件也可以升级。固件文件可在卖家提供的网盘地址下载，名称为 <code>update.bin</code>。</p>
+            <p>通过 USB 将 <code>update.bin</code> 传入 ESC Master 后，设备会验证固件，验证成功后自动升级。固件版本可在系统菜单“关于”的“软件版本”查看。</p>
+            <div class="link-card">
+              <strong>最新固件下载地址</strong>
+              <a href="https://pan.baidu.com/s/1wJvraJaWFbhKNWV_UHFJTw?pwd=3wgi" target="_blank" rel="noreferrer">
+                https://pan.baidu.com/s/1wJvraJaWFbhKNWV_UHFJTw?pwd=3wgi
+              </a>
+            </div>
+          </section>
+        </article>
+      </main>
+    </div>
+
+    <footer>
+      <a href="../">返回电流秩序首页</a>
+      <p>Copyright © <span id="year"></span> ESC Master</p>
+    </footer>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  </body>
+</html>
