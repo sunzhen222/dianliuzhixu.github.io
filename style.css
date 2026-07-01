@@ -259,6 +259,40 @@ h2 {
   margin-bottom: 24px;
 }
 
+.purchase-section {
+  padding-top: 28px;
+  padding-bottom: 44px;
+}
+
+.purchase-card {
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  background: var(--card);
+  box-shadow: var(--shadow-soft);
+}
+
+.purchase-card strong,
+.purchase-card a:not(.btn) {
+  display: block;
+}
+
+.purchase-card strong {
+  color: var(--gold);
+  font-size: 0.9rem;
+}
+
+.purchase-card a:not(.btn) {
+  margin-top: 6px;
+  color: var(--cyan);
+  overflow-wrap: anywhere;
+}
+
 .product-intro > p {
   max-width: 900px;
   margin: 0;
@@ -683,6 +717,11 @@ body.is-ready .loader {
 
   .hero__visual img {
     aspect-ratio: 4 / 3;
+  }
+
+  .purchase-card {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .feature-grid,
